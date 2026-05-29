@@ -1,0 +1,1658 @@
+/* ==========================================================================
+   Opolo — Design System
+   Palette: Warm Charcoal, Deep Ash, Bright Green, Electric Violet,
+   Goldenrod, Warm Cream. Rich and deep throughout, action in green.
+   ========================================================================== */
+
+:root {
+  /* Brand colors (variable names preserved for stability;
+     values reflect the current palette) */
+  --indigo: #1E1E1C;          /* Warm Charcoal — primary dark / nav / body / hero / footer */
+  --indigo-soft: #3D3A35;     /* Deep Ash — secondary surfaces, cards */
+  --off-white: #F5F0E8;       /* Warm Cream — lightest sections only */
+  --cobalt: #00E676;          /* Bright Green — actions, CTAs, focus */
+  --cobalt-hover: #00C853;    /* deeper green for hover */
+  --periwinkle: rgba(255, 255, 255, 0.7); /* body text on dark */
+  --periwinkle-soft: #3D3A35; /* section-soft bg (alias to Deep Ash) */
+  --violet: #8B2BE2;          /* Electric Violet — Founders bg, links/labels on light */
+  --coral: #8B2BE2;           /* alias to violet (kept for HTML class compat) */
+  --goldenrod: #FFC857;       /* Goldenrod — badges, small highlights */
+
+  /* Neutrals */
+  --ink: #1E1E1C;             /* Warm Charcoal text on light surfaces */
+  --ink-muted: rgba(30, 30, 28, 0.72); /* Charcoal text at lower emphasis */
+  --line: rgba(255, 255, 255, 0.08); /* hairline on dark */
+  --line-light: rgba(30, 30, 28, 0.12); /* hairline on light */
+
+  /* Type scale */
+  --fs-display: clamp(2.25rem, 1.5rem + 3.5vw, 4rem);
+  --fs-h1: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-h2: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  --fs-h3: 1.375rem;
+  --fs-body: 1.125rem;
+  --fs-small: 0.95rem;
+
+  /* Spacing scale */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2.5rem;
+  --sp-5: 4rem;
+  --sp-6: 6rem;
+  --sp-7: 8rem;
+
+  /* Layout */
+  --container: 1200px;
+  --container-narrow: 820px;
+
+  /* Misc */
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.30);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.40);
+  --transition: 180ms ease;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body, h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; height: auto; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ==========================================================================
+   Base typography — dark canvas, white headlines, 70% white body
+   ========================================================================== */
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  background: var(--indigo);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #F5F0E8;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 {
+  font-size: clamp(28px, 2vw + 20px, 44px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: var(--fs-h3); }
+
+p { max-width: 62ch; }
+
+/* Default link styling on dark surfaces */
+a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link) {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
+  color: var(--cobalt-hover);
+}
+
+::selection { background: var(--cobalt); color: var(--indigo); }
+
+/* ==========================================================================
+   Light-surface overrides (Warm Cream and callout)
+   ========================================================================== */
+
+.section-warm,
+.callout {
+  color: var(--ink);
+}
+.section-warm h1, .section-warm h2, .section-warm h3, .section-warm h4,
+.callout h1, .callout h2, .callout h3, .callout h4 {
+  color: var(--ink);
+}
+.section-warm p,
+.callout p {
+  color: var(--ink-muted);
+}
+.section-warm a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link),
+.callout a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link) {
+  color: var(--violet);
+}
+.section-warm a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover,
+.callout a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+}
+
+.section { padding-block: var(--sp-6); }
+.section-tight { padding-block: var(--sp-5); }
+.section-roomy { padding-block: var(--sp-7); }
+
+.section-soft {
+  background: var(--indigo-soft);
+}
+
+.section-warm {
+  background: var(--off-white);
+}
+
+.section-indigo {
+  background: var(--indigo);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Navigation — Warm Charcoal header (dark)
+   ========================================================================== */
+
+.nav {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--line-light);
+  position: relative;
+  z-index: 50;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--sp-2);
+  gap: var(--sp-3);
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+.logo-link img { height: 36px; width: auto; }
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+.nav-toggle:hover { background: rgba(30, 30, 28, 0.08); }
+.nav-toggle svg { width: 24px; height: 24px; }
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.nav-link {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  position: relative;
+  transition: color var(--transition);
+}
+.nav-link:hover { color: var(--cobalt); }
+.nav-link.is-active { color: var(--ink); }
+.nav-link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--violet);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Buttons — all primary action = Bright Green with Charcoal text
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-pill);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition), color var(--transition);
+  white-space: nowrap;
+  text-align: center;
+  min-height: 48px;
+}
+
+.btn-primary,
+.btn-on-indigo {
+  background: var(--cobalt);
+  color: var(--indigo);
+  box-shadow: 0 6px 18px rgba(0, 230, 118, 0.30);
+}
+.btn-primary:hover,
+.btn-on-indigo:hover {
+  background: var(--cobalt-hover);
+  color: var(--indigo);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 230, 118, 0.36);
+}
+
+/* Ghost button — light style for dark surfaces (default page) */
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+}
+.btn-ghost:hover {
+  background: #fff;
+  color: var(--indigo);
+  border-color: #fff;
+}
+/* Ghost button — dark style for light surfaces */
+.section-warm .btn-ghost,
+.callout .btn-ghost {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.section-warm .btn-ghost:hover,
+.callout .btn-ghost:hover {
+  background: var(--ink);
+  color: var(--off-white);
+  border-color: var(--ink);
+}
+
+.btn-full {
+  display: flex;
+  width: 100%;
+}
+
+.btn-large {
+  font-size: 1.05rem;
+  padding: 1rem 1.75rem;
+  min-height: 54px;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  background: var(--indigo);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 200, 87, 0.12) 0%, rgba(30, 30, 28, 0) 70%);
+  top: -200px;
+  left: -200px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-4);
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 580px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--goldenrod);
+  margin-bottom: var(--sp-3);
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--goldenrod);
+}
+
+.hero h1 {
+  color: #F5F0E8;
+  font-size: clamp(28px, 1.8vw + 22px, 42px);
+  line-height: 1.2;
+  margin-bottom: var(--sp-3);
+  max-width: 100%;
+}
+
+.hero p.lede {
+  color: rgba(245, 240, 232, 0.78);
+  font-size: clamp(17px, 1vw + 13.5px, 22px);
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: var(--sp-4);
+  max-width: 52ch;
+}
+
+.hero-octopus {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 640px;
+  max-width: 60vw;
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+@media (max-width: 880px) {
+  .hero-octopus {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 60%;
+    max-width: 320px;
+    margin: var(--sp-4) auto 0;
+    opacity: 0.92;
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Inline email form
+   ========================================================================== */
+
+.signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 520px;
+}
+
+.signup-form input[type="email"],
+.signup-form input[type="text"] {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 0.95rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  background: var(--off-white);
+  color: var(--ink);
+  min-height: 48px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.signup-form input::placeholder { color: var(--ink-muted); }
+.signup-form input:focus {
+  border-color: var(--cobalt);
+  box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.28);
+}
+
+.signup-note {
+  margin-top: var(--sp-2);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-success {
+  display: none;
+  margin-top: var(--sp-2);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--goldenrod);
+  color: var(--ink);
+  font-weight: 500;
+  max-width: 520px;
+}
+.signup-success.is-visible { display: block; }
+
+/* ==========================================================================
+   Section heads
+   ========================================================================== */
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: var(--sp-4);
+}
+.section-head.center {
+  margin-inline: auto;
+  text-align: center;
+}
+.section-head .eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--goldenrod);
+  margin-bottom: 28px;
+}
+.section-warm .section-head .eyebrow,
+.callout .section-head .eyebrow {
+  color: var(--violet);
+}
+.section-head h2 {
+  margin-bottom: var(--sp-2);
+}
+.section-head p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 56ch;
+}
+.section-warm .section-head p,
+.callout .section-head p {
+  color: var(--ink-muted);
+}
+.section-head.center p { margin-inline: auto; }
+
+/* ==========================================================================
+   Cards — Deep Ash bubbles, white type, 70% body
+   ========================================================================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-3);
+}
+
+/* Force 2-column layout for 4-card principle grids */
+.card-grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 640px) {
+  .card-grid-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Full-width card spanning all columns */
+.card-span-full {
+  grid-column: 1 / -1;
+}
+
+.card {
+  background: var(--indigo-soft);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.card h3 {
+  color: #fff;
+  margin-bottom: var(--sp-2);
+}
+.card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+}
+
+/* On Deep Ash sections, recess cards to Warm Charcoal so they read as carved-in */
+.section-soft .card,
+.section-soft .form-card,
+.section-soft .numbered-list .step {
+  background: var(--indigo);
+}
+
+/* Card icon bubbles use accent fills */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--cobalt);
+  color: var(--indigo);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 6px 16px rgba(0, 230, 118, 0.28);
+}
+.card-icon.coral {
+  background: var(--violet);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(139, 43, 226, 0.34);
+}
+.card-icon.gold {
+  background: var(--goldenrod);
+  color: var(--ink);
+  box-shadow: 0 6px 16px rgba(255, 200, 87, 0.32);
+}
+
+/* Callout — Warm Cream relief moment with Charcoal text */
+.callout {
+  background: var(--off-white);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4) var(--sp-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  align-items: center;
+}
+@media (min-width: 760px) {
+  .callout { grid-template-columns: 1fr auto; padding: var(--sp-4) var(--sp-5); }
+}
+.callout h3 { margin-bottom: 0.5rem; color: var(--ink); }
+.callout p { color: var(--ink-muted); margin: 0; }
+
+/* Final CTA — Deep Ash band, Bright Green button inside */
+.cta-band {
+  background: var(--indigo-soft);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.40);
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 200, 87, 0.10), transparent 55%);
+  pointer-events: none;
+}
+.cta-band > * { position: relative; }
+.cta-band h2 { color: #fff; margin-bottom: var(--sp-2); }
+.cta-band p { color: rgba(255, 255, 255, 0.7); margin: 0 auto var(--sp-3); max-width: 50ch; }
+.cta-band .signup-form { margin-inline: auto; justify-content: center; }
+
+/* ==========================================================================
+   Founders spotlight — Electric Violet card, premium scroll-stopper
+   ========================================================================== */
+
+.founders-spotlight {
+  background: var(--violet);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.75rem, 4vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(139, 43, 226, 0.40);
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 820px) {
+  .founders-spotlight {
+    grid-template-columns: 1.4fr auto;
+    gap: var(--sp-5);
+  }
+}
+.founders-spotlight::before {
+  content: '';
+  position: absolute;
+  top: -220px;
+  right: -180px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.20) 0%, rgba(139, 43, 226, 0) 70%);
+  pointer-events: none;
+}
+.founders-spotlight::after {
+  content: '';
+  position: absolute;
+  bottom: -180px;
+  left: -120px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 200, 87, 0.18) 0%, rgba(139, 43, 226, 0) 65%);
+  pointer-events: none;
+}
+.founders-spotlight > * { position: relative; z-index: 1; }
+.founders-spotlight h3 {
+  color: #fff;
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--sp-2);
+  max-width: 22ch;
+}
+.founders-spotlight p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 52ch;
+}
+.founders-spotlight .badge {
+  margin-bottom: var(--sp-3);
+}
+.founders-spotlight .badge.gold {
+  background: var(--goldenrod);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Page hero (interior pages)
+   ========================================================================== */
+
+.page-hero {
+  background: var(--indigo);
+  color: #fff;
+  padding-block: clamp(4rem, 7vw, 6rem);
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 200, 87, 0.10) 0%, rgba(30, 30, 28, 0) 70%);
+  top: -120px;
+  right: -120px;
+  pointer-events: none;
+}
+.page-hero h1 {
+  color: #F5F0E8;
+  font-size: clamp(38px, 3vw + 27px, 64px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--sp-2);
+  max-width: 22ch;
+  position: relative;
+}
+.page-hero .eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--goldenrod);
+  margin-bottom: 28px;
+  position: relative;
+}
+.page-hero p.lede {
+  font-size: clamp(17px, 1vw + 13.5px, 22px);
+  font-weight: 400;
+  color: rgba(245, 240, 232, 0.78);
+  line-height: 1.55;
+  max-width: 60ch;
+  position: relative;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Long-form prose blocks (default — dark surface)
+   ========================================================================== */
+
+.prose {
+  max-width: 70ch;
+}
+.prose p + p {
+  margin-top: var(--sp-2);
+}
+.prose h2, .prose h3 {
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-2);
+}
+.prose ul {
+  margin: var(--sp-2) 0;
+  padding-left: 0;
+}
+.prose ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.prose ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cobalt);
+}
+.prose strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Prose on light surfaces */
+.section-warm .prose ul li,
+.callout .prose ul li {
+  color: var(--ink);
+}
+.section-warm .prose ul li::before,
+.callout .prose ul li::before {
+  background: var(--violet);
+}
+.section-warm .prose strong,
+.callout .prose strong {
+  color: var(--ink);
+}
+
+.pull-quote {
+  border-left: 3px solid var(--goldenrod);
+  padding: var(--sp-2) 0 var(--sp-2) var(--sp-3);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  margin: var(--sp-4) 0;
+  line-height: 1.45;
+  max-width: 60ch;
+}
+.section-warm .pull-quote,
+.callout .pull-quote {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Form card — Deep Ash card, light type
+   ========================================================================== */
+
+.form-card {
+  background: var(--indigo-soft);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  box-shadow: var(--shadow-card);
+  max-width: 580px;
+  margin-inline: auto;
+}
+@media (min-width: 600px) {
+  .form-card { padding: var(--sp-5); }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: var(--sp-3);
+}
+.form-field label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.form-field .hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+.form-field input,
+.form-field select {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  background: var(--off-white);
+  color: var(--ink);
+  min-height: 48px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--cobalt);
+  box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.28);
+}
+
+.form-card .btn {
+  width: 100%;
+}
+
+.form-card .form-fineprint {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--sp-2);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Founders Circle accents
+   ========================================================================== */
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--sp-3);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--goldenrod);
+  color: var(--ink);
+}
+.badge.coral { background: var(--violet); color: #fff; }
+.badge.gold { background: var(--goldenrod); color: var(--ink); }
+
+.numbered-list {
+  counter-reset: step;
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+.numbered-list .step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2);
+  align-items: start;
+  background: var(--indigo-soft);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  padding: var(--sp-3);
+  border-radius: var(--radius-lg);
+}
+.numbered-list .step::before {
+  counter-increment: step;
+  content: counter(step);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--cobalt);
+  color: var(--indigo);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 230, 118, 0.34);
+}
+.numbered-list .step h3 {
+  color: #fff;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+.numbered-list .step p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  background: var(--indigo);
+  color: rgba(255, 255, 255, 0.7);
+  padding-block: var(--sp-5);
+  margin-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  align-items: start;
+}
+@media (min-width: 720px) {
+  .footer-inner { grid-template-columns: 1fr auto; }
+}
+.footer-brand img { height: 32px; width: auto; margin-bottom: var(--sp-2); }
+.footer-tag {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 36ch;
+  margin: 0;
+}
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+.footer-link {
+  color: #fff;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.footer-link:hover { color: var(--cobalt); }
+.footer-bottom {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* ==========================================================================
+   Standalone eyebrow — goldenrod on dark surfaces by default.
+   Overridden to violet on .section-warm / .callout, and to white on
+   .section-violet.
+   ========================================================================== */
+
+.eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--goldenrod);
+  margin-bottom: 28px;
+}
+
+/* ==========================================================================
+   Section: Electric Violet band
+   ========================================================================== */
+
+.section-violet {
+  background: var(--violet);
+}
+.section-violet .section-head .eyebrow,
+.section-violet .eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+}
+.section-violet .section-head p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   Card prose modifier — wider padding on desktop for reading-heavy cards
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .card-prose { padding: var(--sp-5); }
+}
+
+/* ==========================================================================
+   Prose block — full-width section text, centered, no card chrome
+   ========================================================================== */
+
+.prose-block {
+  max-width: 740px;
+  margin-inline: auto;
+}
+.prose-block .eyebrow {
+  display: block;
+}
+.prose-block p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 75ch;
+}
+.prose-block a:not(.btn) {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.prose-block a:not(.btn):hover {
+  color: var(--cobalt-hover);
+}
+
+/* ==========================================================================
+   Mission statement block — centered, oversized headline
+   ========================================================================== */
+
+.mission-block {
+  text-align: center;
+  max-width: 820px;
+  margin-inline: auto;
+}
+.mission-statement {
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  max-width: none;
+}
+
+/* ==========================================================================
+   Founder note — collapsible accordion
+   ========================================================================== */
+
+.founder-note {
+  background: var(--indigo-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.founder-note-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  list-style: none;
+  transition: background var(--transition);
+  user-select: none;
+}
+.founder-note-toggle::-webkit-details-marker { display: none; }
+.founder-note-toggle::marker { display: none; }
+.founder-note-toggle:hover { background: rgba(255, 255, 255, 0.05); }
+
+.founder-note-icon {
+  flex-shrink: 0;
+  color: var(--goldenrod);
+  transition: transform var(--transition);
+}
+details[open] .founder-note-icon {
+  transform: rotate(180deg);
+}
+
+.founder-note-body {
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+.founder-note-body p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
+.founder-note-body p + p {
+  margin-top: var(--sp-2);
+}
+.founder-attribution {
+  font-weight: 600;
+  color: var(--goldenrod) !important;
+  margin-top: var(--sp-3) !important;
+}
+
+/* ==========================================================================
+   Responsive nav (mobile)
+   ========================================================================== */
+
+@media (max-width: 880px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--line-light);
+    padding: var(--sp-2) var(--sp-3) var(--sp-3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    display: none;
+  }
+  .nav-menu.is-open { display: flex; }
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+  .nav-link {
+    padding: 0.85rem 0.25rem;
+    border-bottom: 1px solid var(--line-light);
+    width: 100%;
+  }
+  .nav-link.is-active::after { display: none; }
+  .eyebrow,
+  .section-head .eyebrow,
+  .page-hero .eyebrow { font-size: 13px; }
+  .nav-menu .btn {
+    margin-top: var(--sp-2);
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   MailerLite form wrapper + disclaimer
+   ========================================================================== */
+
+.ml-form-wrap {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.form-disclaimer {
+  margin-top: var(--sp-2);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  max-width: none;
+}
+
+/* ==========================================================================
+   Check list (Founders Circle — what you get)
+   ========================================================================== */
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-3) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+}
+
+.check-list li::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cobalt);
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  box-shadow: 0 4px 12px rgba(0, 230, 118, 0.30);
+}
+
+/* ==========================================================================
+   Vision page — stat cards
+   ========================================================================== */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 560px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+.stat-card {
+  background: var(--indigo-soft);
+}
+
+/* On Deep Ash sections, recess stat cards to Warm Charcoal */
+.section-soft .stat-card {
+  background: var(--indigo);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4) var(--sp-5);
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(2.4rem, 1.6rem + 3.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--cobalt);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-1);
+}
+
+.stat-label {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stat-source {
+  display: block;
+  margin-top: var(--sp-2);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Vision page — The Gap visual
+   ========================================================================== */
+
+.gap-visual {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--sp-4);
+  align-items: stretch;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .gap-visual {
+    grid-template-columns: 1fr;
+  }
+  .gap-divider {
+    align-self: auto;
+    flex-direction: row;
+    padding-inline: 0;
+    padding-block: var(--sp-2);
+    justify-content: flex-start;
+  }
+  .gap-divider-line {
+    flex: unset;
+    width: 48px;
+    height: 2px;
+    border-left: none;
+    border-top: 2px dashed rgba(245, 240, 232, 0.30);
+  }
+}
+
+.gap-card {
+  background: var(--indigo-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4) var(--sp-5);
+  align-self: stretch;
+}
+
+.gap-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.2em 0.75em;
+  margin-bottom: var(--sp-3);
+}
+
+.gap-badge-green {
+  background: rgba(56, 189, 148, 0.18);
+  color: var(--cobalt);
+}
+
+.gap-badge-violet {
+  background: rgba(139, 43, 226, 0.22);
+  color: #c084fc;
+}
+
+.gap-card-headline {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--sp-1);
+  line-height: 1.2;
+}
+
+.gap-subtitle-green {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cobalt);
+  margin-bottom: var(--sp-3);
+}
+
+.gap-subtitle-violet {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c084fc;
+  margin-bottom: var(--sp-3);
+}
+
+.gap-icons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.gap-icon-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.gap-icon-box {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FB4815;
+}
+
+.gap-callout {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cobalt);
+  margin-top: var(--sp-2);
+  line-height: 1.45;
+}
+
+.gap-accent {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin-bottom: var(--sp-2);
+  line-height: 1.45;
+}
+
+.gap-body {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: var(--sp-2);
+}
+
+.gap-tagline {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #c084fc;
+}
+
+/* Gap: card wrappers hold floating elements + card */
+.gap-card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.gap-card-wrapper .gap-card {
+  flex: 1;
+}
+
+/* Gap: floating pill labels above School Day card */
+.gap-floating-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 14px;
+}
+
+.gap-float-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+  padding: 0.25em 0.85em 0.25em 0.35em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.70);
+  width: fit-content;
+}
+
+.gap-float-pill .gap-icon-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+}
+
+/* Gap: Opolo logo above Silent Hours card */
+.gap-above-logo {
+  display: flex;
+  align-items: center;
+  padding-bottom: 14px;
+}
+
+.gap-above-logo img {
+  height: 28px;
+  width: auto;
+  opacity: 0.90;
+}
+
+/* Gap: vertical dotted divider replacing the Opolo wordmark */
+.gap-divider {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: var(--sp-2);
+}
+
+.gap-divider-line {
+  flex: 1;
+  border-left: 2px dashed rgba(245, 240, 232, 0.30);
+}
+
+/* ==========================================================================
+   why.html — Mission pull quote
+   ========================================================================== */
+
+.mission-pull {
+  border-left: 3px solid #FFC857;
+  padding-left: 24px;
+  margin-top: var(--sp-4);
+  max-width: 60ch;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #F5F0E8;
+}
+
+/* ==========================================================================
+   why.html — Who Opolo Is For cards
+   ========================================================================== */
+
+.who-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+@media (max-width: 640px) {
+  .who-cards { grid-template-columns: 1fr; }
+}
+
+.who-card {
+  background: #3D3A35;
+  padding: 36px 32px;
+  border-radius: 12px;
+}
+
+.who-card-primary {
+  border-left: 4px solid #8B2BE2;
+  padding-left: 28px;
+}
+
+/* On Deep Ash sections, recess who-cards to Warm Charcoal */
+.section-soft .who-card {
+  background: #1E1E1C;
+}
+
+.who-card-badge {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFC857;
+  margin-bottom: 16px;
+}
+
+.who-card-badge-secondary {
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.who-card-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #F5F0E8;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.who-card-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(245, 240, 232, 0.82);
+  margin: 0;
+  max-width: none;
+}
+
+/* ==========================================================================
+   why.html — Anchor sentence
+   ========================================================================== */
+
+/* Deck line beneath section H2 */
+.who-deck {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(245, 240, 232, 0.85);
+  max-width: 680px;
+  margin-top: 0;
+  margin-bottom: 44px;
+}
+
+/* Real Problem closing pull-quote — Electric Violet left border */
+.pull-block {
+  border-left: 3px solid #8B2BE2;
+  padding-left: 24px;
+  margin-top: var(--sp-4);
+  max-width: 60ch;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #F5F0E8;
+}
+
+.pull-block strong {
+  font-weight: 700;
+  color: #F5F0E8;
+}
+
+.anchor-sentence {
+  max-width: 820px;
+  margin-inline: auto;
+  margin-top: 48px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #F5F0E8;
+  padding-block: 28px;
+  border-top: 1px solid rgba(255, 199, 87, 0.30);
+  border-bottom: 1px solid rgba(255, 199, 87, 0.30);
+}
+
+.anchor-punch {
+  color: #FFC857;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Venn diagram
+   ========================================================================== */
+
+.venn-svg {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.venn-caption {
+  font-size: clamp(28px, 2vw + 20px, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #F5F0E8;
+  text-align: center;
+  margin-top: var(--sp-2);
+  margin-bottom: var(--sp-5);
+  max-width: none;
+}
+
+.venn-tagline {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F5F0E8;
+  text-align: center;
+  margin-top: var(--sp-4);
+  max-width: none;
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

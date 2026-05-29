@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    { "source": "/why.html",             "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
+    { "source": "/vision.html",          "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
+    { "source": "/founders-circle.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
+    { "source": "/stay-in-touch.html",   "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
+    { "source": "/marketing-draft.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!wicfoundher\\.html|assets/|styles\\.css|script\\.js).*)",
+      "destination": "/index.html",
+      "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }]
+    }
+  ]
+}
