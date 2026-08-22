@@ -11,6 +11,7 @@
       "source": "/((?!wicfoundher\\.html|assets/|styles\\.css|script\\.js).*)",
       "destination": "/index.html",
       "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }]
-    }
+    },
+    { "source": "/stay-connected", "destination": "/stay-in-touch.html" }
   ]
 }

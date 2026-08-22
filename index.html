@@ -3,13 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Opolo — Homework support built for neurodiverse learners</title>
-  <meta name="description" content="Opolo is a homework support tool built for neurodiverse middle and high school students, so getting it done feels possible." />
-  <link rel="icon" type="image/svg+xml" href="assets/opolo-octopus.svg" />
+  <title>Opolo — Homework Support for Neurodiverse Learners</title>
+  <meta name="description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
+  <link rel="canonical" href="https://opololearning.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://opololearning.com/" />
+  <meta property="og:title" content="Opolo — Homework Support for Neurodiverse Learners" />
+  <meta property="og:description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
+  <meta property="og:image" content="https://opololearning.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Opolo" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Opolo — Homework Support for Neurodiverse Learners" />
+  <meta name="twitter:description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
+  <meta name="twitter:image" content="https://opololearning.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/opolo-octopus.svg" />
+  <link rel="apple-touch-icon" href="/assets/logos-png/opolo-octopus-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Opolo",
+    "url": "https://opololearning.com",
+    "logo": "https://opololearning.com/assets/logos-png/opolo-horizontal.png",
+    "description": "Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done.",
+    "founder": {
+      "@type": "Person",
+      "name": "Carol Grant"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Opolo",
+    "url": "https://opololearning.com"
+  }
+  </script>
+
   <!-- MailerLite Universal -->
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -42,7 +87,7 @@
           <li><a href="founders-circle.html" class="nav-link">Founders Circle</a></li>
           <li><a href="stay-in-touch.html" class="nav-link">Stay Connected</a></li>
         </ul>
-        <a href="stay-in-touch.html" class="btn btn-primary">Join the List</a>
+        <a href="/stay-connected" class="btn btn-primary">Join the List</a>
       </nav>
     </div>
   </header>
@@ -53,7 +98,7 @@
     <div class="container hero-inner">
       <div class="hero-content">
         <span class="hero-eyebrow">Coming soon</span>
-        <h1>Opolo helps neurodiverse learners bridge the gap between knowing the work and doing it.</h1>
+        <h1>Opolo helps neurodiverse learners bridge the gap between their capabilities and getting the work done.</h1>
         <form class="signup-form" data-signup novalidate>
           <label class="visually-hidden" for="hero-email" style="position:absolute;left:-9999px;">Email address</label>
           <input id="hero-email" type="email" name="email" placeholder="Your email" required autocomplete="email" />
@@ -62,7 +107,7 @@
         <div class="signup-success" aria-live="polite">Thanks. We will keep you close to what comes next.</div>
         <p class="signup-note">No noise. Just thoughtful updates as we build.</p>
       </div>
-      <img class="hero-octopus" src="assets/opolo-octopus.svg" alt="" aria-hidden="true" />
+      <img class="hero-octopus" src="assets/opolo-octopus.svg" alt="Opolo octopus mascot, the symbol of Opolo's homework support for neurodiverse learners" />
     </div>
   </section>
 
@@ -179,7 +224,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <img src="assets/opolo-wordmark.svg" alt="Opolo" />
+          <img src="assets/opolo-wordmark.svg" alt="Opolo" loading="lazy" />
           <p class="footer-tag">Homework support built for neurodiverse learners.</p>
         </div>
         <div class="footer-meta">

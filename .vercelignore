@@ -1,0 +1,7 @@
+.vercel
+node_modules
+build-og-image.js
+poppins-bold.ttf
+package.json
+package-lock.json
+WEBSITE-CONTENT.md

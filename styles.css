@@ -200,6 +200,7 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 
 .nav-toggle {
   display: none;
+  flex: 0 0 44px;
   width: 44px;
   height: 44px;
   align-items: center;
@@ -320,18 +321,15 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   color: #fff;
   position: relative;
   overflow: hidden;
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(3rem, 5vw, 5rem);
+  min-height: calc(100vh - 86px);
+  min-height: calc(100dvh - 86px);
+  display: flex;
+  align-items: center;
 }
 
 .hero-glow {
-  position: absolute;
-  width: 720px;
-  height: 720px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 200, 87, 0.12) 0%, rgba(30, 30, 28, 0) 70%);
-  top: -200px;
-  left: -200px;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-inner {
@@ -340,6 +338,7 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   grid-template-columns: minmax(0, 1fr);
   gap: var(--sp-4);
   z-index: 2;
+  width: 100%;
 }
 
 .hero-content {
@@ -461,6 +460,14 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 }
 .signup-success.is-visible { display: block; }
 
+.signup-error {
+  margin-top: var(--sp-2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ff8a7a;
+  max-width: 520px;
+}
+
 /* ==========================================================================
    Section heads
    ========================================================================== */
@@ -580,6 +587,104 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   box-shadow: 0 6px 16px rgba(255, 200, 87, 0.32);
 }
 
+/* ==========================================================================
+   Founders Circle — "Who It Is For" section: larger breathing room,
+   bigger icons, Goldenrod connector line tying the three cards together
+   ========================================================================== */
+
+/* 64px equal whitespace frame on all four sides around the three-card group.
+   The eyebrow sits above this frame inside the section's padding-top. */
+.who-section {
+  padding-block: 64px;
+  padding-inline: 64px;
+}
+
+.who-section .container {
+  max-width: none;
+  padding-inline: 0;
+}
+
+.who-section .section-head {
+  margin-bottom: 64px;
+}
+
+.who-grid {
+  position: relative;
+}
+
+/* The Goldenrod through-line behind the cards.
+   Vertical center = card padding-top + icon height/2 = 52px + 34px = 86px
+   from the top of each card (and the grid row top).
+   Opacity at 40% since the section is now Deep Ash (lighter) — needs more
+   weight to stay legible in the gaps. */
+.who-grid::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 86px;
+  height: 1px;
+  background: rgba(255, 200, 87, 0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.who-grid .card {
+  position: relative;
+  z-index: 1;
+  padding: 3.25rem;
+  /* Inverted: Warm Charcoal cards against the Deep Ash section background. */
+  background: var(--indigo);
+}
+
+.who-grid .card-icon {
+  width: 68px;
+  height: 68px;
+  margin-bottom: var(--sp-3);
+}
+
+.who-grid .card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* On mobile (single-column stack), hide the horizontal connector — a
+   vertical run between stacked cards adds visual noise without payoff. */
+@media (max-width: 760px) {
+  .who-grid::before { display: none; }
+  .who-section {
+    padding-block: 48px;
+    padding-inline: 24px;
+  }
+  .who-section .section-head { margin-bottom: 48px; }
+  .who-grid .card { padding: 2.25rem; }
+}
+
+/* Chapter break utilities: tight padding at section transitions.
+   Override section-roomy defaults so the boundary feels intentional
+   without yielding a deep empty gap. */
+.section-edge-bottom { padding-block-end: 64px; }
+.section-edge-top    { padding-block-start: 64px; }
+
+@media (max-width: 767.98px) {
+  .section-edge-bottom { padding-block-end: 48px; }
+  .section-edge-top    { padding-block-start: 48px; }
+}
+
+/* Goldenrod chapter mark — a quiet horizontal handoff between sections.
+   Sits flush at the boundary, centered, no surrounding margin. */
+.chapter-mark {
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 0 auto;
+  background: rgba(255, 200, 87, 0.3);
+}
+
+@media (max-width: 767.98px) {
+  .chapter-mark { width: 80px; }
+}
+
 /* Callout — Warm Cream relief moment with Charcoal text */
 .callout {
   background: var(--off-white);
@@ -609,13 +714,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   border: 1px solid var(--line);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.40);
 }
-.cta-band::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255, 200, 87, 0.10), transparent 55%);
-  pointer-events: none;
-}
 .cta-band > * { position: relative; }
 .cta-band h2 { color: #fff; margin-bottom: var(--sp-2); }
 .cta-band p { color: rgba(255, 255, 255, 0.7); margin: 0 auto var(--sp-3); max-width: 50ch; }
@@ -643,28 +741,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
     grid-template-columns: 1.4fr auto;
     gap: var(--sp-5);
   }
-}
-.founders-spotlight::before {
-  content: '';
-  position: absolute;
-  top: -220px;
-  right: -180px;
-  width: 620px;
-  height: 620px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.20) 0%, rgba(139, 43, 226, 0) 70%);
-  pointer-events: none;
-}
-.founders-spotlight::after {
-  content: '';
-  position: absolute;
-  bottom: -180px;
-  left: -120px;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 200, 87, 0.18) 0%, rgba(139, 43, 226, 0) 65%);
-  pointer-events: none;
 }
 .founders-spotlight > * { position: relative; z-index: 1; }
 .founders-spotlight h3 {
@@ -702,17 +778,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   position: relative;
   overflow: hidden;
 }
-.page-hero::before {
-  content: '';
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 200, 87, 0.10) 0%, rgba(30, 30, 28, 0) 70%);
-  top: -120px;
-  right: -120px;
-  pointer-events: none;
-}
 .page-hero h1 {
   color: #F5F0E8;
   font-size: clamp(38px, 3vw + 27px, 64px);
@@ -740,6 +805,56 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   max-width: 60ch;
   position: relative;
   margin: 0;
+}
+
+/* ==========================================================================
+   Page hero — split variant: text left (60%), mascot right (40%)
+   Used on founders-circle.html. Stacks mascot-above-text on mobile.
+   ========================================================================== */
+
+.page-hero-split-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .page-hero-split-inner {
+    grid-template-columns: 3fr 2fr;
+    gap: var(--sp-5);
+  }
+}
+
+.page-hero-mascot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-hero-mascot img {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .page-hero-mascot img {
+    max-width: 320px;
+    max-height: 320px;
+  }
+  /* On desktop, mascot column sits to the right of the text column */
+  .page-hero-split-inner .page-hero-mascot {
+    justify-content: flex-end;
+  }
+}
+
+/* On mobile the source order (text first, mascot second) needs to flip
+   so the mascot appears ABOVE the text — matches the homepage hero pattern. */
+@media (max-width: 767.98px) {
+  .page-hero-split-inner .page-hero-mascot { order: 1; }
+  .page-hero-split-inner .page-hero-text { order: 2; }
 }
 
 /* ==========================================================================
@@ -1135,40 +1250,57 @@ details[open] .founder-note-icon {
    ========================================================================== */
 
 @media (max-width: 880px) {
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle { display: inline-flex; order: 3; }
+  /* Keep nav-menu inline at mobile so the Join button stays visible.
+     Only the link list collapses behind the hamburger. */
   .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: var(--off-white);
-    border-bottom: 1px solid var(--line-light);
-    padding: var(--sp-2) var(--sp-3) var(--sp-3);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sp-2);
+    position: static;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    order: 2;
   }
-  .nav-menu.is-open { display: flex; }
+  .logo-link { order: 1; margin-right: auto; }
+  /* Hide the link list by default; reveal as dropdown on toggle */
   .nav-links {
+    display: none;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
     width: 100%;
+  }
+  .nav-menu.is-open .nav-links {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--line-light);
+    padding: var(--sp-2) var(--sp-3) var(--sp-3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    z-index: 50;
   }
   .nav-link {
     padding: 0.85rem 0.25rem;
     border-bottom: 1px solid var(--line-light);
     width: 100%;
   }
+  .nav-link.is-active { color: var(--cobalt); }
   .nav-link.is-active::after { display: none; }
   .eyebrow,
   .section-head .eyebrow,
   .page-hero .eyebrow { font-size: 13px; }
+  /* Join the List CTA stays visible inline at mobile */
   .nav-menu .btn {
-    margin-top: var(--sp-2);
-    width: 100%;
+    margin-top: 0;
+    width: auto;
+    flex-shrink: 0;
   }
 }
 
