@@ -172,6 +172,16 @@
     }
   }
 
+  // Nav pill: scroll to the hero form and put the cursor in the email field
+  document.querySelectorAll('a[href="#waitlist"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var target = document.querySelector('#waitlist input[type="email"]');
+      if (target && !target.disabled) {
+        setTimeout(function () { target.focus({ preventScroll: true }); }, 450);
+      }
+    });
+  });
+
   // Mark the active nav link based on current path
   var path = window.location.pathname.split('/').pop() || 'index.html';
   var links = document.querySelectorAll('.nav-link');

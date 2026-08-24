@@ -182,9 +182,13 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 .nav {
   background: var(--off-white);
   border-bottom: 1px solid var(--line-light);
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 50;
 }
+
+/* Anchored scroll targets clear the sticky header */
+#waitlist { scroll-margin-top: 90px; }
 
 .nav-inner {
   display: flex;
