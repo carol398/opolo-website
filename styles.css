@@ -416,9 +416,10 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
     position: relative;
     right: auto;
     top: auto;
+    bottom: auto;
     transform: none;
-    width: 60%;
-    max-width: 320px;
+    width: 80%;
+    max-width: 300px;
     margin: var(--sp-4) auto 0;
     opacity: 0.92;
     display: block;
