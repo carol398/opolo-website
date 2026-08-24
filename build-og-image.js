@@ -7,7 +7,7 @@ const W = 1200, H = 630;
 const CHARCOAL = '#1E1E1C';   // Warm Charcoal background
 const CREAM = '#F5F0E8';      // Warm Cream headline
 const HEADLINE =
-  'Opolo helps neurodiverse learners bridge the gap between their capabilities and getting the work done.';
+  'Homework is where capable students get stuck. We think it can be the place they thrive.';
 
 (async () => {
   // Base: flat Warm Charcoal

@@ -8,15 +8,13 @@ Opolo is a homework support tool built specifically for neurodiverse middle and 
 
 ## Who it is for
 
-Students ages 11 to 16 with executive functioning challenges, ADHD, language processing differences, or similar neurodiverse profiles. Their parents and caregivers. Educators who work with these students. Specialists in assistive technology, behavioral learning, and educational accessibility.
+Students ages 11 to 16 with executive functioning challenges, ADHD, language processing differences, or similar neurodiverse profiles. Their parents and caregivers are the primary audience for the website.
 
 ## Key pages
 
-- Homepage: https://opololearning.com/
-- Our Mission: https://opololearning.com/why
-- The Vision: https://opololearning.com/vision
-- Founders Circle: https://opololearning.com/founders-circle
-- Stay Connected: https://opololearning.com/stay-connected
+- Homepage and waitlist: https://opololearning.com/
+- Our Story: https://opololearning.com/our-story
+- Research (The Homework Paradox, Parent Survey 2026): https://opololearning.com/the-homework-paradox
 
 ## Founder
 

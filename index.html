@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Opolo — Homework Support for Neurodiverse Learners</title>
+  <title>Opolo · Homework Support for Neurodiverse Learners</title>
   <meta name="description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
   <link rel="canonical" href="https://opololearning.com/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://opololearning.com/" />
-  <meta property="og:title" content="Opolo — Homework Support for Neurodiverse Learners" />
+  <meta property="og:title" content="Opolo · Homework Support for Neurodiverse Learners" />
   <meta property="og:description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
   <meta property="og:image" content="https://opololearning.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Opolo — Homework Support for Neurodiverse Learners" />
+  <meta name="twitter:title" content="Opolo · Homework Support for Neurodiverse Learners" />
   <meta name="twitter:description" content="Opolo helps neurodiverse middle and high school students bridge the gap between their capabilities and getting the work done." />
   <meta name="twitter:image" content="https://opololearning.com/assets/og-image.png" />
 
@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="/assets/logos-png/opolo-octopus-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Schema.org structured data -->
@@ -67,138 +67,159 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Navigation -->
   <header class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo-link" aria-label="Opolo home">
         <img src="assets/opolo-wordmark.svg" alt="Opolo" />
       </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="7" x2="20" y2="7"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="17" x2="20" y2="17"></line>
-        </svg>
-      </button>
-      <nav class="nav-menu" id="primary-menu" aria-label="Primary">
-        <ul class="nav-links">
-          <li><a href="why.html" class="nav-link">Our Mission</a></li>
-          <li><a href="vision.html" class="nav-link">The Vision</a></li>
-          <li><a href="founders-circle.html" class="nav-link">Founders Circle</a></li>
-          <li><a href="stay-in-touch.html" class="nav-link">Stay Connected</a></li>
-        </ul>
-        <a href="/stay-connected" class="btn btn-primary">Join the List</a>
-      </nav>
+      <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
     </div>
   </header>
 
+  <main id="main">
+
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+  <section class="hero" id="waitlist">
     <div class="container hero-inner">
       <div class="hero-content">
-        <span class="hero-eyebrow">Coming soon</span>
-        <h1>Opolo helps neurodiverse learners bridge the gap between their capabilities and getting the work done.</h1>
-        <form class="signup-form" data-signup novalidate>
-          <label class="visually-hidden" for="hero-email" style="position:absolute;left:-9999px;">Email address</label>
-          <input id="hero-email" type="email" name="email" placeholder="Your email" required autocomplete="email" />
-          <button type="submit" class="btn btn-primary">Count me in</button>
+        <h1>Homework is where capable students get stuck. We think it can be the place they thrive.</h1>
+        <p class="lede" style="max-width: 44ch;">Opolo helps neurodiverse learners bridge the gap between their capabilities and getting the work done.</p>
+        <form class="signup-form" data-signup>
+          <label class="signup-label" for="hero-email">Email address</label>
+          <input id="hero-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Join the Waitlist</button>
         </form>
-        <div class="signup-success" aria-live="polite">Thanks. We will keep you close to what comes next.</div>
-        <p class="signup-note">No noise. Just thoughtful updates as we build.</p>
+        <div class="signup-success" aria-live="polite">You're on the waitlist. We will email you when the pilot begins in early 2027, and again before the beta opens.</div>
+        <p class="signup-note">Unsubscribe anytime. We will never share your information.</p>
       </div>
       <img class="hero-octopus" src="assets/opolo-octopus.svg" alt="Opolo octopus mascot, the symbol of Opolo's homework support for neurodiverse learners" />
     </div>
   </section>
 
-  <!-- Section: One belief -->
-  <section class="section">
-    <div class="container-narrow">
-      <div class="card" style="max-width: 800px; margin-inline: auto;">
-        <div class="section-head">
-          <span class="eyebrow">What we believe</span>
-          <h2>Homework is where capable students get stuck. We think it can be the place they thrive.</h2>
-        </div>
-        <a href="why.html" class="btn btn-ghost">Read why we exist</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: How it feels -->
-  <section class="section section-roomy">
+  <!-- Section: How it works -->
+  <section class="section section-roomy section-soft">
     <div class="container">
       <div class="section-head center">
-        <span class="eyebrow">How it feels</span>
-        <h2>Calm, clear, and on their side.</h2>
+        <span class="eyebrow">How it works</span>
+        <h2>What Opolo does at homework time.</h2>
       </div>
-      <div class="card-grid">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l3 3 5-6"></path></svg>
-          </div>
-          <h3>Assignments prioritized for impact, not checking the box</h3>
-          <p>When everything feels urgent, nothing gets started. Opolo puts the work that moves the grade first.</p>
-        </article>
+      <div class="card-grid card-grid-2col">
         <article class="card">
           <div class="card-icon coral" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
           </div>
-          <h3>Large projects broken down daily, not left as one impossible task</h3>
-          <p>A two-week deadline feels fine until it is tomorrow. Opolo makes it approachable before urgency takes over.</p>
+          <h3>Coaching</h3>
+          <p>Opolo partners with you and your child on a homework plan that feels achievable, and helps your child understand how they are wired along the way. Self-awareness and curiosity are the goal, not only finished homework.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg>
+          </div>
+          <h3>Execution</h3>
+          <p>Opolo takes on the question that stalls everything: where do I even start? It puts the work that matters first, in sessions small enough to begin, and breaks large assignments into smaller steps.</p>
         </article>
         <article class="card">
           <div class="card-icon gold" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.9L12 16.8 6.8 19.2l1-5.9-4.3-4.1 5.9-.9z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
           </div>
-          <h3>Support at home, exactly when they need it most</h3>
-          <p>School has structure and a teacher. Home has a screen and a deadline. Opolo closes that gap.</p>
+          <h3>Comprehension</h3>
+          <p>Opolo translates hard-to-understand assignments into clear steps, and guides your child through the work until it is done.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon cream" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+          </div>
+          <h3>Feedback</h3>
+          <p>For a child with ADHD, a shorter and more frequent feedback loop is what keeps them engaged and motivated. Opolo builds that loop into every session through the coaching layer, and pairs it with rewards that recognize effort, not grades.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Section: Design principles -->
-  <section class="section">
+  <!-- Section: Who it's for -->
+  <section class="section" id="research">
+    <div class="container">
+      <div class="audience-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Who it's for</span>
+            <h2>Built for the moment schoolwork becomes more complex.</h2>
+          </div>
+          <p>Opolo is built for middle and high school, starting with students who have ADHD and executive functioning challenges. This is the stretch where one teacher becomes six, work arrives from every direction at once, and the support that carried a family through elementary school stops scaling.</p>
+          <a href="/the-homework-paradox" class="btn btn-secondary" style="margin-top: var(--sp-4);">Read the research</a>
+        </div>
+        <div class="stat-panel">
+          <div class="stat-bar-row is-muted">
+            <div class="stat-bar-top">
+              <span class="stat-bar-name">Elementary school parents</span>
+              <span class="stat-bar-num">38%</span>
+            </div>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 38%;"></div></div>
+          </div>
+          <div class="stat-bar-row">
+            <div class="stat-bar-top">
+              <span class="stat-bar-name">Middle school parents</span>
+              <span class="stat-bar-num">69%</span>
+            </div>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 69%;"></div></div>
+          </div>
+          <div class="stat-bar-row is-secondary">
+            <div class="stat-bar-top">
+              <span class="stat-bar-name">High school parents</span>
+              <span class="stat-bar-num">64%</span>
+            </div>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 64%;"></div></div>
+          </div>
+          <p class="stat-caption">Our 2026 survey of parents of neurodiverse students found that 69 percent of middle school parents and 64 percent of high school parents named feeling overwhelmed before even starting as their child's biggest homework struggle, up from 38 percent in elementary school.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Our story teaser -->
+  <section class="section section-warm" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-head">
+          <span class="eyebrow story-eyebrow">Our story</span>
+          <h2>Inspired by my two boys.</h2>
+        </div>
+        <div class="story-body">
+          <p>My oldest son thrived in a small preschool. But when he entered the public school system with larger class sizes for his kindergarten year, a different kid emerged overnight, and the calls from his teacher started and were endless. His ADHD diagnosis came not long after. We tried everything, IEP, 504 plan, medication, tutors, and by his freshman year of high school we were still living the same patterns. Then my younger son was diagnosed with Oral Written Language Disorder. Their struggles looked different, but for both of them the moment they sat down to do homework at home, the process felt like a mountain to climb. That is how Opolo was born.</p>
+          <p class="story-signature">Carol Grant, Founder</p>
+          <a href="our-story.html" class="story-link">Read the full story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Guiding principles -->
+  <section class="section section-soft">
     <div class="container">
       <div class="section-head center">
-        <span class="eyebrow">Our Guiding Principles</span>
-        <h2>Designed for forward motion, not perfection.</h2>
+        <span class="eyebrow">Our guiding principles</span>
+        <h2>How we build.</h2>
       </div>
       <div class="card-grid card-grid-2col">
         <article class="card">
           <h3>Progress over perfection, always</h3>
-          <p>Opolo is not built around a perfect score. It is built around forward motion. Every assignment attempted, every hard moment pushed through — that is what gets noticed and celebrated.</p>
+          <p>Opolo is built around forward motion, not a perfect score. Every assignment attempted and every hard moment pushed through is what gets noticed.</p>
         </article>
         <article class="card">
-          <h3>Calm is a feature, not an afterthought</h3>
-          <p>No countdown timers. No red warning messages. No pressure-inducing interfaces. Opolo is designed to lower the activation energy of starting, not raise it.</p>
+          <h3>Calm is a feature</h3>
+          <p>No countdown timers, no red warnings, no pressure built into the interface. Opolo is designed to make starting easier.</p>
         </article>
         <article class="card">
-          <h3>We reward consistency, not grades</h3>
-          <p>Building executive function skills takes repetition, not perfection. Opolo tracks effort and follow-through, so students can see themselves growing even when the grade does not reflect it.</p>
+          <h3>Effort gets noticed</h3>
+          <p>Building executive function skills takes repetition. Opolo notices effort and follow-through, so your child can see themselves growing even when the grade does not show it yet.</p>
         </article>
         <article class="card">
           <h3>Parents champion, not monitor</h3>
-          <p>Each week parents get a simple view of what their student is working on and how it is going — without the surveillance feeling. The goal is support, not oversight.</p>
+          <p>You get a simple picture of how homework is going, without hovering. And when your child needs you in the room, Opolo gives you the plan and the words to coach them through it, then hands the lead back as they grow. Support, not surveillance.</p>
         </article>
-        <article class="card card-span-full">
-          <h3>Built to work itself out of a job.</h3>
-          <p>Opolo starts by doing more. It translates, prioritizes, and breaks the work down so students can act. But as executive functioning skills grow, it steps back. The goal has always been independence, not dependency.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Founders spotlight -->
-  <section class="section">
-    <div class="container">
-      <div class="founders-spotlight">
-        <div>
-          <span class="badge gold">Limited spots</span>
-          <h3>Co-create with us.</h3>
-          <p>A small group of families helping us build Opolo from the ground up. Early access, direct input, and a front row seat to what comes next.</p>
-        </div>
-        <a href="founders-circle.html" class="btn btn-on-indigo btn-large">Learn about the Circle</a>
       </div>
     </div>
   </section>
@@ -207,30 +228,33 @@
   <section class="section">
     <div class="container">
       <div class="cta-band">
-        <h2>Stay close to what comes next.</h2>
-        <p>Join the list and we will share what we are learning, building, and getting wrong, in plain language and at a calm pace.</p>
-        <form class="signup-form" data-signup novalidate>
-          <label class="visually-hidden" for="cta-email" style="position:absolute;left:-9999px;">Email address</label>
-          <input id="cta-email" type="email" name="email" placeholder="Your email" required autocomplete="email" />
-          <button type="submit" class="btn btn-on-indigo">Count me in</button>
+        <h2>Get in line for the open beta.</h2>
+        <p>Join the waitlist and you will hear from us when the pilot begins in early 2027, and again before the beta opens.</p>
+        <form class="signup-form" data-signup>
+          <label class="signup-label" for="cta-email">Email address</label>
+          <input id="cta-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Join the Waitlist</button>
         </form>
-        <div class="signup-success" aria-live="polite" style="margin-inline:auto;">Thanks. We will keep you close to what comes next.</div>
+        <div class="signup-success" aria-live="polite" style="margin-inline:auto;">You're on the waitlist. We will email you when the pilot begins in early 2027, and again before the beta opens.</div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="assets/opolo-wordmark.svg" alt="Opolo" loading="lazy" />
+          <p class="footer-etymology"><em lang="yo">Ọpọlọ</em> <span class="footer-phonetic">(Oh-Paw-Law)</span> &middot; Brain / Intelligence / Mental Capacity</p>
           <p class="footer-tag">Homework support built for neurodiverse learners.</p>
         </div>
         <div class="footer-meta">
           <a class="footer-link" href="mailto:connect@opolo.ai">connect@opolo.ai</a>
-          <a class="footer-link" href="stay-in-touch.html">Stay connected</a>
-          <a class="footer-link" href="founders-circle.html">Founders Circle</a>
+          <a class="footer-link" href="our-story.html">Our story</a>
+          <a class="footer-link" href="/the-homework-paradox">Research</a>
         </div>
       </div>
       <div class="footer-bottom">

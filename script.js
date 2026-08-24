@@ -53,7 +53,7 @@
       var originalLabel = submitBtn ? submitBtn.textContent : '';
 
       if (!EMAIL_RE.test(email)) {
-        setError(form, 'Please enter a valid email address.');
+        setError(form, 'That email address is missing something. Check it and we will add you to the list.');
         if (emailInput) emailInput.focus();
         return;
       }
@@ -86,6 +86,7 @@
             }
             // Keep fields disabled and dim the form as a calm confirmation state.
             form.style.opacity = '0.55';
+            askGradeLevel(form, email);
           } else {
             recover();
             setError(form, 'Something went wrong. Please try again.');
@@ -97,6 +98,64 @@
         });
     });
   });
+
+  // Step two of the waitlist: one grade-level question on the success state.
+  // The email is already captured, so skipping this costs nothing.
+  function askGradeLevel(form, email) {
+    var host = form.parentElement;
+    if (host.querySelector('.grade-ask')) return;
+
+    var ask = document.createElement('div');
+    ask.className = 'grade-ask';
+
+    var selectId = 'grade-select-' + Math.random().toString(36).slice(2, 7);
+
+    var q = document.createElement('label');
+    q.className = 'grade-ask-q';
+    q.setAttribute('for', selectId);
+    q.textContent = 'One quick question, so we send you what fits: what grade is your child in?';
+    ask.appendChild(q);
+
+    var select = document.createElement('select');
+    select.className = 'grade-select';
+    select.id = selectId;
+    var options = ['Choose a grade', '6th grade', '7th grade', '8th grade', '9th grade',
+      '10th grade', '11th grade', '12th grade', '5th grade or younger', 'Not a parent'];
+    options.forEach(function (label, i) {
+      var o = document.createElement('option');
+      o.textContent = label;
+      o.value = i === 0 ? '' : label;
+      if (i === 0) { o.disabled = true; o.selected = true; }
+      select.appendChild(o);
+    });
+    select.addEventListener('change', function () {
+      if (!select.value) return;
+      select.disabled = true;
+      var body = 'fields[email]=' + encodeURIComponent(email) +
+                 '&fields[student_grade]=' + encodeURIComponent(select.value) +
+                 '&ml-submit=1&anticsrf=true';
+      fetch(ML_SUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).catch(function () {}).finally(function () {
+        // The signup is already complete; the answer is a bonus either way.
+        var done = document.createElement('p');
+        done.className = 'grade-ask-done';
+        done.setAttribute('role', 'status');
+        done.textContent = 'Got it. Thank you.';
+        ask.replaceChildren(done);
+      });
+    });
+    ask.appendChild(select);
+
+    var successEl = host.querySelector('.signup-success');
+    if (successEl && successEl.parentElement === host) {
+      successEl.insertAdjacentElement('afterend', ask);
+    } else {
+      host.appendChild(ask);
+    }
+  }
 
   // Mark the active nav link based on current path
   var path = window.location.pathname.split('/').pop() || 'index.html';

@@ -163,6 +163,8 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 .section-soft {
   background: var(--indigo-soft);
 }
+/* Cards invert their fill against the section (design system rule) */
+.section-soft .card { background: var(--indigo); }
 
 .section-warm {
   background: var(--off-white);
@@ -267,17 +269,25 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 .btn-on-indigo {
   background: var(--cobalt);
   color: var(--indigo);
-  box-shadow: 0 6px 18px rgba(0, 230, 118, 0.30);
 }
 .btn-primary:hover,
 .btn-on-indigo:hover {
   background: var(--cobalt-hover);
   color: var(--indigo);
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 230, 118, 0.36);
 }
 
 /* Ghost button — light style for dark surfaces (default page) */
+.btn-secondary {
+  background: transparent;
+  color: var(--cobalt);
+  border: 2px solid var(--cobalt);
+  border-radius: 8px;
+}
+.btn-secondary:hover {
+  background: rgba(0, 230, 118, 0.10);
+}
+
 .btn-ghost {
   background: transparent;
   color: #fff;
@@ -388,13 +398,12 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 
 .hero-octopus {
   position: absolute;
-  right: -8%;
-  top: 50%;
-  transform: translateY(-50%);
+  right: -60px;
+  bottom: -80px;
   width: 640px;
   max-width: 60vw;
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.96;
   z-index: 1;
 }
 
@@ -422,16 +431,165 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   gap: 0.75rem;
   max-width: 520px;
 }
+/* Label takes its own line; input and button share the row */
+.signup-form .signup-label { flex: 1 1 100%; margin-bottom: 0; }
+.signup-form button[type="submit"] { flex: 0 0 auto; }
+
+/* ==========================================================================
+   Who it's for — copy + stat panel
+   ========================================================================== */
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.stat-panel {
+  background: var(--indigo-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.stat-bar-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+.stat-bar-name { font-size: 1.05rem; font-weight: 600; color: #F5F0E8; }
+.stat-bar-num {
+  font-size: 3.5rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F5F0E8;
+  font-variant-numeric: tabular-nums;
+}
+.stat-bar-row.is-muted .stat-bar-name,
+.stat-bar-row.is-muted .stat-bar-num {
+  color: rgba(245, 240, 232, 0.55);
+  font-size: 2.4rem;
+}
+.stat-bar-row.is-muted .stat-bar-name { font-size: 1.05rem; }
+.stat-bar-track {
+  margin-top: 12px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(245, 240, 232, 0.18);
+  overflow: hidden;
+}
+.stat-bar-fill { height: 100%; background: var(--goldenrod); }
+.stat-bar-row.is-muted .stat-bar-fill { background: rgba(245, 240, 232, 0.4); }
+.stat-bar-row.is-secondary .stat-bar-fill { background: var(--violet); }
+.stat-bar-row.is-secondary .stat-bar-num { color: rgba(245, 240, 232, 0.82); font-size: 2.8rem; }
+.stat-caption { font-size: 0.95rem; line-height: 1.6; color: rgba(245, 240, 232, 0.55); }
+
+/* ==========================================================================
+   Our story teaser — Warm Cream section
+   ========================================================================== */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+.story-head { display: flex; flex-direction: column; gap: var(--sp-2); }
+.story-head h2 { font-size: clamp(32px, 2.2vw + 20px, 48px); line-height: 1.1; }
+.story-body p:not(.story-signature) { font-size: 1.25rem; line-height: 1.65; max-width: none; }
+@media (max-width: 860px) {
+  .story-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+}
+.section-warm .story-eyebrow { color: var(--violet); }
+
+/* ==========================================================================
+   Our Story page
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--cobalt);
+  color: var(--indigo);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+.story-page-grid {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.founder-portrait {
+  margin: 0;
+  position: sticky;
+  top: var(--sp-4);
+}
+.founder-portrait .portrait-frame {
+  border-radius: var(--radius-lg);
+  background: var(--indigo-soft);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.founder-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.founder-portrait figcaption {
+  margin-top: var(--sp-2);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.story-page-body p { font-size: 1.15rem; line-height: 1.7; max-width: 62ch; }
+.story-page-body p + p { margin-top: var(--sp-3); }
+.story-page-body .founder-attribution { margin-top: var(--sp-3); font-weight: 600; color: #F5F0E8; }
+
+@media (max-width: 860px) {
+  .story-page-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .founder-portrait { position: static; max-width: 340px; }
+}
+.section-warm .story-signature {
+  margin-top: var(--sp-3);
+  font-weight: 600;
+  color: var(--ink);
+}
+.story-link {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  padding-bottom: 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  border-bottom: 2px solid var(--cobalt);
+}
+
+@media (max-width: 860px) {
+  .audience-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+}
 
 .signup-form input[type="email"],
 .signup-form input[type="text"] {
   flex: 1 1 240px;
   min-width: 0;
   padding: 0.95rem 1.1rem;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid transparent;
-  background: var(--off-white);
-  color: var(--ink);
+  border-radius: 8px;
+  border: 2px solid rgba(245, 240, 232, 0.2);
+  background: var(--indigo-soft);
+  color: #F5F0E8;
   min-height: 48px;
   outline: none;
   transition: border-color var(--transition), box-shadow var(--transition);
@@ -442,8 +600,16 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.28);
 }
 
+.signup-label {
+  display: block;
+  margin-bottom: var(--sp-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.78);
+}
+
 .signup-note {
-  margin-top: var(--sp-2);
+  margin-top: var(--sp-3);
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -542,7 +708,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
 }
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
   border-color: rgba(255, 255, 255, 0.16);
 }
 .card h3 {
@@ -574,17 +739,18 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   margin-bottom: var(--sp-3);
   font-weight: 700;
   font-size: 1.25rem;
-  box-shadow: 0 6px 16px rgba(0, 230, 118, 0.28);
 }
 .card-icon.coral {
   background: var(--violet);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(139, 43, 226, 0.34);
 }
 .card-icon.gold {
   background: var(--goldenrod);
   color: var(--ink);
-  box-shadow: 0 6px 16px rgba(255, 200, 87, 0.32);
+}
+.card-icon.cream {
+  background: var(--off-white);
+  color: var(--ink);
 }
 
 /* ==========================================================================
@@ -712,12 +878,44 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.40);
 }
 .cta-band > * { position: relative; }
 .cta-band h2 { color: #fff; margin-bottom: var(--sp-2); }
 .cta-band p { color: rgba(255, 255, 255, 0.7); margin: 0 auto var(--sp-3); max-width: 50ch; }
 .cta-band .signup-form { margin-inline: auto; justify-content: center; }
+.cta-band .signup-note { margin-top: var(--sp-3); }
+
+/* ==========================================================================
+   Waitlist step two — grade-level question on the success state
+   ========================================================================== */
+
+.grade-ask { margin-top: var(--sp-3); }
+.grade-ask-q {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 var(--sp-2);
+  max-width: 46ch;
+}
+.grade-select {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #F5F0E8;
+  background: var(--indigo-soft);
+  border: 2px solid rgba(245, 240, 232, 0.3);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  min-height: 48px;
+  min-width: 220px;
+  cursor: pointer;
+  display: block;
+}
+.grade-select:focus-visible { outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.28); }
+.grade-select:disabled { opacity: 0.5; cursor: default; }
+.grade-ask-q { display: block; }
+.grade-ask-done { margin: 0; color: var(--cobalt); font-weight: 600; }
+.cta-band .grade-ask-q, .cta-band .grade-ask-done { margin-inline: auto; }
+.cta-band .grade-select { margin-inline: auto; }
 
 /* ==========================================================================
    Founders spotlight — Electric Violet card, premium scroll-stopper
@@ -730,7 +928,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.75rem, 4vw, 4rem);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(139, 43, 226, 0.40);
   display: grid;
   gap: var(--sp-3);
   grid-template-columns: 1fr;
@@ -935,7 +1132,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: var(--sp-4);
-  box-shadow: var(--shadow-card);
   max-width: 580px;
   margin-inline: auto;
 }
@@ -1041,7 +1237,6 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
-  box-shadow: 0 4px 12px rgba(0, 230, 118, 0.34);
 }
 .numbered-list .step h3 {
   color: #fff;
@@ -1059,10 +1254,10 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
    ========================================================================== */
 
 .footer {
-  background: var(--indigo);
+  background: var(--indigo-soft);
   color: rgba(255, 255, 255, 0.7);
   padding-block: var(--sp-5);
-  margin-top: var(--sp-6);
+  margin-top: 0;
   border-top: 1px solid var(--line);
 }
 .footer-inner {
@@ -1075,6 +1270,17 @@ a:not(.btn):not(.nav-link):not(.logo-link):not(.footer-link):hover {
   .footer-inner { grid-template-columns: 1fr auto; }
 }
 .footer-brand img { height: 32px; width: auto; margin-bottom: var(--sp-2); }
+.footer-etymology {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 4px;
+}
+.footer-etymology em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-phonetic { color: rgba(255, 255, 255, 0.45); }
+
 .footer-tag {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -1246,62 +1452,14 @@ details[open] .founder-note-icon {
 }
 
 /* ==========================================================================
-   Responsive nav (mobile)
+   Responsive nav (mobile) — header is logo + waitlist pill only
    ========================================================================== */
 
 @media (max-width: 880px) {
-  .nav-toggle { display: inline-flex; order: 3; }
-  /* Keep nav-menu inline at mobile so the Join button stays visible.
-     Only the link list collapses behind the hamburger. */
-  .nav-menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--sp-2);
-    position: static;
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    order: 2;
-  }
-  .logo-link { order: 1; margin-right: auto; }
-  /* Hide the link list by default; reveal as dropdown on toggle */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    width: 100%;
-  }
-  .nav-menu.is-open .nav-links {
-    display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--off-white);
-    border-bottom: 1px solid var(--line-light);
-    padding: var(--sp-2) var(--sp-3) var(--sp-3);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    z-index: 50;
-  }
-  .nav-link {
-    padding: 0.85rem 0.25rem;
-    border-bottom: 1px solid var(--line-light);
-    width: 100%;
-  }
-  .nav-link.is-active { color: var(--cobalt); }
-  .nav-link.is-active::after { display: none; }
   .eyebrow,
   .section-head .eyebrow,
   .page-hero .eyebrow { font-size: 13px; }
-  /* Join the List CTA stays visible inline at mobile */
-  .nav-menu .btn {
-    margin-top: 0;
-    width: auto;
-    flex-shrink: 0;
-  }
+  .nav-inner .btn { flex-shrink: 0; }
 }
 
 /* ==========================================================================
@@ -1357,7 +1515,6 @@ details[open] .founder-note-icon {
   align-items: center;
   justify-content: center;
   margin-top: 1px;
-  box-shadow: 0 4px 12px rgba(0, 230, 118, 0.30);
 }
 
 /* ==========================================================================

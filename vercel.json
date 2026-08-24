@@ -4,7 +4,19 @@
     { "source": "/vision.html",          "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
     { "source": "/founders-circle.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
     { "source": "/stay-in-touch.html",   "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-    { "source": "/marketing-draft.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false }
+    { "source": "/marketing-draft.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
+
+    { "source": "/why",                  "destination": "/our-story", "permanent": false },
+    { "source": "/why.html",             "destination": "/our-story", "permanent": false },
+    { "source": "/founders-circle",      "destination": "/our-story", "permanent": false },
+    { "source": "/founders-circle.html", "destination": "/our-story", "permanent": false },
+    { "source": "/vision",               "destination": "/", "permanent": false },
+    { "source": "/vision.html",          "destination": "/", "permanent": false },
+    { "source": "/stay-in-touch",        "destination": "/", "permanent": false },
+    { "source": "/stay-in-touch.html",   "destination": "/", "permanent": false },
+    { "source": "/stay-connected",       "destination": "/", "permanent": false },
+    { "source": "/marketing-draft.html", "destination": "/", "permanent": false },
+    { "source": "/our-story.html",       "destination": "/our-story", "permanent": false }
   ],
   "rewrites": [
     {
@@ -12,6 +24,6 @@
       "destination": "/index.html",
       "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }]
     },
-    { "source": "/stay-connected", "destination": "/stay-in-touch.html" }
+    { "source": "/our-story", "destination": "/our-story.html" }
   ]
 }
