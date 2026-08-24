@@ -172,13 +172,19 @@
     }
   }
 
-  // Nav pill: scroll to the hero form and put the cursor in the email field
+  // Nav pill: scroll to the waitlist form and put the cursor in the email field.
+  // Focus first (without scrolling), then start the smooth scroll — focusing
+  // during the animation cancels it.
   document.querySelectorAll('a[href="#waitlist"]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var target = document.querySelector('#waitlist input[type="email"]');
-      if (target && !target.disabled) {
-        setTimeout(function () { target.focus({ preventScroll: true }); }, 450);
-      }
+    a.addEventListener('click', function (e) {
+      var section = document.querySelector('#waitlist');
+      if (!section) return;
+      e.preventDefault();
+      var target = section.querySelector('input[type="email"]');
+      if (target && !target.disabled) target.focus({ preventScroll: true });
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      section.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', '#waitlist');
     });
   });
 
