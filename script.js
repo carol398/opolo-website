@@ -128,11 +128,13 @@
       if (i === 0) { o.disabled = true; o.selected = true; }
       select.appendChild(o);
     });
+    var grades = [];
     select.addEventListener('change', function () {
       if (!select.value) return;
       select.disabled = true;
+      grades.push(select.value);
       var body = 'fields[email]=' + encodeURIComponent(email) +
-                 '&fields[student_grade]=' + encodeURIComponent(select.value) +
+                 '&fields[student_grade]=' + encodeURIComponent(grades.join(', ')) +
                  '&ml-submit=1&anticsrf=true';
       fetch(ML_SUBSCRIBE_URL, {
         method: 'POST',
@@ -145,6 +147,19 @@
         done.setAttribute('role', 'status');
         done.textContent = 'Got it. Thank you.';
         ask.replaceChildren(done);
+        // A family can have more than one student. Same email, grades accumulate.
+        if (select.value !== 'Not a parent') {
+          var more = document.createElement('button');
+          more.type = 'button';
+          more.className = 'grade-add-more';
+          more.textContent = 'Add another child';
+          more.addEventListener('click', function () {
+            select.disabled = false;
+            select.selectedIndex = 0;
+            ask.replaceChildren(q, select);
+          });
+          ask.appendChild(more);
+        }
       });
     });
     ask.appendChild(select);
