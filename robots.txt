@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /lwgstesting
 Sitemap: https://www.opololearning.com/sitemap.xml

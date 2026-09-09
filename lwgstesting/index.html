@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opolo · Private Testing Cohort</title>
+  <meta name="description" content="Sign up for the Opolo private testing cohort. Homework support for middle and high school students with ADHD and executive functioning challenges." />
+
+  <!-- Private page. Not indexed, not linked from opololearning.com, not in the sitemap. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Opolo · Private Testing Cohort" />
+  <meta property="og:description" content="Sign up for the Opolo private testing cohort." />
+  <meta property="og:image" content="https://www.opololearning.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Opolo" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/opolo-octopus.svg" />
+  <link rel="apple-touch-icon" href="/assets/logos-png/opolo-octopus-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================
+       Opolo · Private testing cohort landing page
+       Built to OPOLO-BRAND-FOUNDATION.md token values, not to the
+       marketing site's styles.css. Flat hex only, no gradients.
+       ========================================================== */
+    :root {
+      --warm-charcoal: #1E1E1C;
+      --deep-ash: #3D3A35;
+      --warm-cream: #F5F0E8;
+      --bright-green: #00E676;
+      --bright-green-hover: #00C853;
+      --goldenrod: #FFC857;
+
+      --fg1: var(--warm-cream);
+      --fg2: rgba(245, 240, 232, 0.78);
+      --fg3: rgba(245, 240, 232, 0.55);
+      --hairline: rgba(245, 240, 232, 0.08);
+      --fg-on-light: var(--warm-charcoal);
+
+      --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --eyebrow-size: 14px;
+      --h1-size: 60px;   --h1-lh: 1.1;
+      --h2-size: 40px;   --h2-lh: 1.15;
+      --deck-size: 20px; --deck-lh: 1.55;
+      --body-size: 16px; --body-lh: 1.6;
+      --caption-size: 14px; --caption-lh: 1.5;
+
+      --space-xs: 4px;  --space-sm: 8px;  --space-md: 16px; --space-lg: 24px;
+      --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 128px;
+
+      --radius-card: 16px;
+      --radius-pill: 999px;
+      --content-max: 1200px;
+      --content-gutter: 24px;
+      --tap-min: 44px;
+    }
+
+    /* Mobile type scale, locked in the design system */
+    @media (max-width: 720px) {
+      :root {
+        --eyebrow-size: 13px;
+        --h1-size: 30px;   --h1-lh: 1.2;
+        --h2-size: 24px;   --h2-lh: 1.25;
+        --deck-size: 18px; --deck-lh: 1.55;
+        --body-size: 17px; --body-lh: 1.6;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--warm-charcoal);
+      font-family: var(--font-sans);
+      font-size: var(--body-size);
+      line-height: var(--body-lh);
+      color: var(--fg2);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg, iframe { display: block; max-width: 100%; }
+    h1, h2 { margin: 0; font-weight: 700; color: var(--fg1); }
+    p { margin: 0; }
+    a { color: var(--bright-green); }
+    a:hover { color: var(--bright-green-hover); }
+    ::selection { background: var(--bright-green); color: var(--warm-charcoal); }
+
+    :focus-visible {
+      outline: 2px solid var(--bright-green);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute; left: -9999px;
+      background: var(--bright-green); color: var(--warm-charcoal);
+      padding: 12px 20px; border-radius: var(--radius-pill);
+      font-weight: 600; text-decoration: none; z-index: 100;
+    }
+    .skip-link:focus { left: var(--content-gutter); top: var(--content-gutter); }
+
+    .wrap {
+      max-width: var(--content-max);
+      margin-inline: auto;
+      padding-inline: var(--content-gutter);
+    }
+    .wrap-narrow { max-width: 820px; margin-inline: auto; }
+    .wrap-mid { max-width: 1000px; margin-inline: auto; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: var(--eyebrow-size);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--goldenrod);
+      margin-bottom: var(--space-lg);
+    }
+
+    .h1 { font-size: var(--h1-size); line-height: var(--h1-lh); letter-spacing: -0.015em; text-wrap: pretty; }
+    .h2 { font-size: var(--h2-size); line-height: var(--h2-lh); letter-spacing: -0.01em; text-wrap: pretty; }
+    .deck { font-size: var(--deck-size); line-height: var(--deck-lh); color: var(--fg2); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--tap-min);
+      padding: 12px var(--space-lg);
+      border-radius: var(--radius-pill);
+      background: var(--bright-green);
+      color: var(--warm-charcoal);
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+    .btn:hover { background: var(--bright-green-hover); color: var(--warm-charcoal); transform: translateY(-1px); }
+    .btn-lg { min-height: 54px; padding: 16px 28px; }
+
+    /* Nav */
+    .nav { background: var(--warm-charcoal); border-bottom: 1px solid var(--hairline); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-lg); padding-block: var(--space-md);
+    }
+    .nav-inner img { height: 36px; width: auto; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; background: var(--warm-charcoal); padding: var(--space-4xl) var(--content-gutter); }
+    .hero-octopus {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -46%);
+      width: 1150px; opacity: 0.13; z-index: 1; pointer-events: none;
+      max-width: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .hero .h1 { margin-bottom: var(--space-lg); }
+    .hero .deck { max-width: 52ch; margin-bottom: var(--space-xl); }
+
+    /* Sections */
+    .section { padding: var(--space-3xl) var(--content-gutter); }
+    .section-ash { background: var(--deep-ash); }
+    .section-charcoal { background: var(--warm-charcoal); }
+    .centered { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .centered .h2 { margin-bottom: var(--space-md); }
+    .centered .deck { max-width: 54ch; }
+
+    /* Video */
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--warm-charcoal);
+      margin-top: var(--space-xl);
+    }
+    .video-frame iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Cohort */
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .cohort-card {
+      background: var(--deep-ash);
+      border-radius: var(--radius-card);
+      padding: var(--space-xl);
+      display: flex; flex-direction: column; gap: var(--space-lg);
+    }
+    .cohort-item { display: flex; gap: var(--space-md); align-items: flex-start; }
+    .cohort-item svg { flex: 0 0 24px; margin-top: 2px; }
+    .cohort-item p { color: var(--fg1); }
+    @media (max-width: 880px) {
+      .cohort-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    }
+
+    /* Form */
+    .form-card {
+      max-width: 800px;
+      margin: var(--space-xl) auto 0;
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      padding: var(--space-lg);
+      overflow: hidden;
+    }
+    .form-card iframe { width: 100%; height: 1250px; border: 0; }
+    @media (max-width: 720px) {
+      .form-card { padding: var(--space-sm); }
+      .form-card iframe { height: 1500px; }
+    }
+
+    /* Footer */
+    .footer { background: var(--deep-ash); padding: var(--space-2xl) var(--content-gutter); }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: start; }
+    .footer-inner img { height: 32px; width: auto; margin-bottom: var(--space-md); }
+    .footer-etymology { font-size: var(--caption-size); line-height: var(--caption-lh); color: var(--fg3); margin-bottom: var(--space-xs); }
+    .footer-etymology em { font-style: italic; color: var(--fg2); }
+    .footer-tag { max-width: 36ch; }
+    .footer-link { color: var(--fg1); font-weight: 500; text-decoration: none; }
+    .footer-link:hover { color: var(--bright-green); }
+    .footer-bottom {
+      margin-top: var(--space-xl); padding-top: var(--space-lg);
+      border-top: 1px solid var(--hairline);
+      font-size: var(--caption-size); line-height: var(--caption-lh); color: var(--fg3);
+      display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap;
+    }
+    @media (max-width: 720px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: var(--space-sm); }
+      .hero { padding-block: var(--space-2xl); }
+      .hero-octopus { width: 460px; }
+      .section { padding-block: var(--space-2xl); }
+    }
+  </style>
+
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <img src="/assets/opolo-wordmark.svg" alt="Opolo" />
+      <a href="#signup" class="btn">Sign up</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <img class="hero-octopus" src="/assets/opolo-octopus.svg" alt="" aria-hidden="true" />
+      <div class="wrap-mid hero-inner">
+        <span class="eyebrow">Private testing cohort</span>
+        <h1 class="h1">Homework is where capable students get stuck. We think it can be the place they thrive.</h1>
+        <p class="deck">Homework support for middle and high school students with ADHD and executive functioning challenges. Opolo helps your child start, understand, and finish schoolwork.</p>
+        <a href="#signup" class="btn btn-lg">Sign up for our testing cohort</a>
+      </div>
+    </section>
+
+    <!-- Founder video -->
+    <section class="section section-ash">
+      <div class="wrap-mid centered">
+        <span class="eyebrow">Video</span>
+        <h2 class="h2">A message from the founder</h2>
+        <p class="deck">Carol Grant on why she built Opolo and what she is hoping to learn from this group of families.</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/8niPJaZWYsQ?rel=0"
+            title="A message from the founder of Opolo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the cohort -->
+    <section class="section section-charcoal">
+      <div class="wrap cohort-grid">
+        <div>
+          <span class="eyebrow">The pilot</span>
+          <h2 class="h2" style="margin-bottom: var(--space-md);">About the testing cohort</h2>
+          <p>A small group of families using Opolo alongside real homework, during the school year. The cohort stays small on purpose, because what we learn from the first families is what shapes the next version of the product.</p>
+        </div>
+        <div class="cohort-card">
+          <div class="cohort-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <p>Free for every family in the cohort.</p>
+          </div>
+          <div class="cohort-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <p>Students use Opolo on their own. We check in with parents along the way.</p>
+          </div>
+          <div class="cohort-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <p>Your feedback goes straight into what gets built next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timing -->
+    <section class="section section-ash">
+      <div class="wrap-narrow centered">
+        <span class="eyebrow">What happens next</span>
+        <h2 class="h2">Timing</h2>
+        <p class="deck" style="max-width: 52ch;">We are aiming to kick off in January 2027 or sooner. Signing up puts you on the list and we will be in touch well before anything starts.</p>
+      </div>
+    </section>
+
+    <!-- Sign up -->
+    <section class="section section-charcoal" id="signup">
+      <div class="wrap">
+        <div class="wrap-narrow centered">
+          <span class="eyebrow">Sign up</span>
+          <h2 class="h2">Sign up for our testing cohort</h2>
+        </div>
+        <div class="form-card">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeODZly6SuSmiUlAe6pOidIGC0Tvqmn2e0NI7K-qqwOIGZrHA/viewform?embedded=true"
+            title="Opolo Testing Interest List">Loading the form&hellip;</iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <img src="/assets/opolo-wordmark.svg" alt="Opolo" loading="lazy" />
+          <p class="footer-etymology"><em lang="yo">&#7885;p&#7885;l&#7885;</em> (Oh-Paw-Law) &middot; Brain / Intelligence / Mental Capacity</p>
+          <p class="footer-tag">Homework support built for neurodiverse learners.</p>
+        </div>
+        <div>
+          <a class="footer-link" href="mailto:connect@opolo.ai">connect@opolo.ai</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Opolo Inc.</span>
+        <span>Progress over perfection. Always.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

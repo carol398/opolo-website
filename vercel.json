@@ -1,29 +1,141 @@
 {
   "redirects": [
-    { "source": "/why.html",             "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-    { "source": "/vision.html",          "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-    { "source": "/founders-circle.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-    { "source": "/stay-in-touch.html",   "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-    { "source": "/marketing-draft.html", "destination": "/", "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }], "permanent": false },
-
-    { "source": "/why",                  "destination": "/our-story", "permanent": false },
-    { "source": "/why.html",             "destination": "/our-story", "permanent": false },
-    { "source": "/founders-circle",      "destination": "/our-story", "permanent": false },
-    { "source": "/founders-circle.html", "destination": "/our-story", "permanent": false },
-    { "source": "/vision",               "destination": "/", "permanent": false },
-    { "source": "/vision.html",          "destination": "/", "permanent": false },
-    { "source": "/stay-in-touch",        "destination": "/", "permanent": false },
-    { "source": "/stay-in-touch.html",   "destination": "/", "permanent": false },
-    { "source": "/stay-connected",       "destination": "/", "permanent": false },
-    { "source": "/marketing-draft.html", "destination": "/", "permanent": false },
-    { "source": "/our-story.html",       "destination": "/our-story", "permanent": false }
+    {
+      "source": "/why.html",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ],
+      "permanent": false
+    },
+    {
+      "source": "/vision.html",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ],
+      "permanent": false
+    },
+    {
+      "source": "/founders-circle.html",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ],
+      "permanent": false
+    },
+    {
+      "source": "/stay-in-touch.html",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ],
+      "permanent": false
+    },
+    {
+      "source": "/marketing-draft.html",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ],
+      "permanent": false
+    },
+    {
+      "source": "/why",
+      "destination": "/our-story",
+      "permanent": false
+    },
+    {
+      "source": "/why.html",
+      "destination": "/our-story",
+      "permanent": false
+    },
+    {
+      "source": "/founders-circle",
+      "destination": "/our-story",
+      "permanent": false
+    },
+    {
+      "source": "/founders-circle.html",
+      "destination": "/our-story",
+      "permanent": false
+    },
+    {
+      "source": "/vision",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/vision.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/stay-in-touch",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/stay-in-touch.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/stay-connected",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/marketing-draft.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/our-story.html",
+      "destination": "/our-story",
+      "permanent": false
+    }
   ],
   "rewrites": [
     {
       "source": "/((?!wicfoundher\\.html|assets/|styles\\.css|script\\.js).*)",
       "destination": "/index.html",
-      "has": [{ "type": "host", "value": "wicfoundher.opolo.ai" }]
+      "has": [
+        {
+          "type": "host",
+          "value": "wicfoundher.opolo.ai"
+        }
+      ]
     },
-    { "source": "/our-story", "destination": "/our-story.html" }
+    {
+      "source": "/our-story",
+      "destination": "/our-story.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/lwgstesting(/.*)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    }
   ]
 }
