@@ -109,6 +109,11 @@
       "source": "/our-story.html",
       "destination": "/our-story",
       "permanent": false
+    },
+    {
+      "source": "/lwgstesting",
+      "destination": "/lwgmstesting",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -129,7 +134,7 @@
   ],
   "headers": [
     {
-      "source": "/lwgstesting(/.*)?",
+      "source": "/lwgmstesting(/.*)?",
       "headers": [
         {
           "key": "X-Robots-Tag",
