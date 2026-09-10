@@ -179,11 +179,12 @@
     /* Video */
     .video-frame {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      max-width: 420px;
+      aspect-ratio: 9 / 16;
       border-radius: var(--radius-card);
       overflow: hidden;
       background: var(--warm-charcoal);
-      margin-top: var(--space-xl);
+      margin: var(--space-xl) auto 0;
     }
     .video-frame iframe { width: 100%; height: 100%; border: 0; }
 
