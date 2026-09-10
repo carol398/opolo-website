@@ -207,21 +207,6 @@
       .cohort-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
     }
 
-    /* Form */
-    .form-card {
-      max-width: 800px;
-      margin: var(--space-xl) auto 0;
-      background: #FFFFFF;
-      border-radius: var(--radius-card);
-      padding: var(--space-lg);
-      overflow: hidden;
-    }
-    .form-card iframe { width: 100%; height: 1250px; border: 0; }
-    @media (max-width: 720px) {
-      .form-card { padding: var(--space-sm); }
-      .form-card iframe { height: 1500px; }
-    }
-
     /* Footer */
     .footer { background: var(--deep-ash); padding: var(--space-2xl) var(--content-gutter); }
     .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: start; }
@@ -255,7 +240,6 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <img src="/assets/opolo-wordmark.svg" alt="Opolo" />
-      <a href="#signup" class="btn">Sign up</a>
     </div>
   </header>
 
@@ -268,7 +252,7 @@
         <span class="eyebrow">Private testing cohort</span>
         <h1 class="h1">Homework is where capable students get stuck. We think it can be the place they thrive.</h1>
         <p class="deck">Homework support for middle and high school students with ADHD and executive functioning challenges. Opolo helps your child start, understand, and finish schoolwork.</p>
-        <a href="#signup" class="btn btn-lg">Sign up for our testing cohort</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeODZly6SuSmiUlAe6pOidIGC0Tvqmn2e0NI7K-qqwOIGZrHA/viewform" class="btn btn-lg" target="_blank" rel="noopener noreferrer">Sign up for our testing cohort</a>
       </div>
     </section>
 
@@ -286,6 +270,7 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen></iframe>
         </div>
+        <p style="margin-top: var(--space-lg); color: var(--fg2);">If you have questions, email me directly at <a href="mailto:carol@opolo.ai">carol@opolo.ai</a>.</p>
       </div>
     </section>
 
@@ -304,7 +289,11 @@
           </div>
           <div class="cohort-item">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-            <p>Students use Opolo on their own. We check in with parents along the way.</p>
+            <p>You create the account and your child uses Opolo on their own. We check in with you along the way.</p>
+          </div>
+          <div class="cohort-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <p>You get a weekly report of your child's progress.</p>
           </div>
           <div class="cohort-item">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
@@ -319,22 +308,7 @@
       <div class="wrap-narrow centered">
         <span class="eyebrow">What happens next</span>
         <h2 class="h2">Timing</h2>
-        <p class="deck" style="max-width: 52ch;">We are aiming to kick off in January 2027 or sooner. Signing up puts you on the list and we will be in touch well before anything starts.</p>
-      </div>
-    </section>
-
-    <!-- Sign up -->
-    <section class="section section-charcoal" id="signup">
-      <div class="wrap">
-        <div class="wrap-narrow centered">
-          <span class="eyebrow">Sign up</span>
-          <h2 class="h2">Sign up for our testing cohort</h2>
-        </div>
-        <div class="form-card">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSeODZly6SuSmiUlAe6pOidIGC0Tvqmn2e0NI7K-qqwOIGZrHA/viewform?embedded=true"
-            title="Opolo Testing Interest List">Loading the form&hellip;</iframe>
-        </div>
+        <p class="deck" style="max-width: 52ch;">We are aiming to kick off in January 2027 or sooner. We will reach out before the holidays with more details and logistics for the testing cohort.</p>
       </div>
     </section>
 
@@ -348,7 +322,8 @@
           <p class="footer-etymology"><em lang="yo">&#7885;p&#7885;l&#7885;</em> (Oh-Paw-Law) &middot; Brain / Intelligence / Mental Capacity</p>
           <p class="footer-tag">Homework support built for neurodiverse learners.</p>
         </div>
-        <div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+          <a class="footer-link" href="https://www.opololearning.com" target="_blank" rel="noopener noreferrer">opololearning.com</a>
           <a class="footer-link" href="mailto:connect@opolo.ai">connect@opolo.ai</a>
         </div>
       </div>
